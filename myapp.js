@@ -20,6 +20,67 @@ var skycons = new Skycons();
 /*
 Get value from Bootstrap dropdown menu
 */
+
+
+  
+
+
 $('#dropdown li').on('click', function(){
-    alert($(this).text());
+
+    var city = $(this).text();
+          $('button').text(city);
+
+          $.ajax('https://query.yahooapis.com/v1/public/yql', {
+            method: 'GET',
+            data: {
+              q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + '")',
+              format: 'json'
+            },
+            success: function (data) {
+          var weatherInfo = data.query.results.channel;
+              var cityMatch = 'It seems ' + weatherInfo.item.condition.text.toLowerCase()+' in '+ weatherInfo.location.city + ', ' + weatherInfo.location.country
+              var noCity = 'Sorry, I found no city matching ' + city;
+            if (data.query.count === 0 || data.query.results.channel.item.title === 'City not found') {
+              responsiveVoice.speak(noCity);
+              setSubtitle(noCity);
+              return false;
+            }
+
+
+
+         console.log(weatherInfo);
+
+          var Temp = Math.round((weatherInfo.item.condition.temp - 32) * 5/9 );
+            $('.temperature').text(Temp);
+          var DateOfToday = weatherInfo.item.forecast[0].date;
+            $('.date').text(DateOfToday);
+          var weatherCondToday = weatherInfo.item.condition.text;    
+            $('.weatherCond').text(weatherCondToday); 
+
+            $('tr th:nth-child(1)').text(weatherInfo.item.forecast[1].date);   
+            $('tr th:nth-child(2)').text(weatherInfo.item.forecast[2].date);
+            $('tr th:nth-child(3)').text(weatherInfo.item.forecast[3].date);
+
+          var Temp_1 = Math.round((weatherInfo.item.forecast[1].low - 32)*(5/9)) + '~' + Math.round((weatherInfo.item.forecast[1].high - 32)*(5/9)) + ' ℃';
+          var Temp_2 = Math.round((weatherInfo.item.forecast[2].low - 32)*(5/9)) + '~' + Math.round((weatherInfo.item.forecast[2].high - 32)*(5/9)) + ' ℃';
+          var Temp_3 = Math.round((weatherInfo.item.forecast[3].low - 32)*(5/9)) + '~' + Math.round((weatherInfo.item.forecast[3].high - 32)*(5/9)) + ' ℃';
+            $('tr td:nth-child(1) p').text(Temp_1);
+            $('tr td:nth-child(2) p').text(Temp_2);
+            $('tr td:nth-child(3) p').text(Temp_3);
+
+          var Icon_1 = weatherInfo.item.forecast[1].text;
+          var Icon_2 = weatherInfo.item.forecast[2].text;
+          var Icon_3 = weatherInfo.item.forecast[3].text;
+          
+          skycons.set("toady" , weatherCondToday);
+          skycons.set("day1" , Icon_1);
+          skycons.set("day2" , Icon_2);
+          skycons.set("day3" , Icon_3);
+
+          console.log(cityMatch);
+          console.log(nocity);
+
+            }
+          });
+
 });

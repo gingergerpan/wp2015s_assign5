@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Weather</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="mycss.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -13,14 +13,32 @@
     <div class="col-xs-6">
       <!-- Large button group -->
       <div class="btn-group">
-        <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-          Taipei <span class="caret"></span>
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Taipei
+          <span class="caret"></span>
         </button>
         <ul id="dropdown" class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taipei</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tainan</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hualien</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taidong</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taipei City     </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New Taipei City </a><li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taichung City   </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tainan City     </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kaohsiung City  </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Keelung City    </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taoyuan District</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hsinchu City    </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hsinchu County  </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Miaoli City     </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Changhua City   </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nantou City     </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Yunling         </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chiayi City     </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chiayi County   </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pingtung City   </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ilan City       </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hualien City    </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Taitung City    </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Penghu          </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Jingmen         </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lianjiang       </a></li>
         </ul>
       </div>
       <div><span class="temperature">23</span> &#8451;</div>
@@ -28,7 +46,8 @@
     <div class="col-xs-6">
       <canvas id="today" width="100" height="100"></canvas>
       <div class="condition">
-          <span class="date">4 May 2015</span>: Mostly Cloudy
+          <span class="date">4 May 2015</span> 
+          <span class="weatherCond"></span>  
       </div>
     </div>
   </div>
@@ -49,9 +68,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>17-23 &#8451;</td>
-                  <td>18-26 &#8451;</td>
-                  <td>15-24 &#8451;</td>
+                  <td><p>17-23 &#8451;</p></td>
+                  <td><p>18-26 &#8451;</p></td>
+                  <td><p>15-24 &#8451;</p></td>
                 </tr>
                 <tr>
                   <td><canvas id="day1" width="64" height="64">Clear</canvas></td>
@@ -66,9 +85,10 @@
   
 </div>
 
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-<script src="//darkskyapp.github.io/skycons/skycons.js"></script>
-<script src="myapp.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+<script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
+<script type="text/javascript" src="myapp.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </body>
 </html>
